@@ -1,0 +1,52 @@
+<% if notice.present? %>
+    <div class="alert alert-success">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= notice %>
+    </div>
+<% end %>
+
+<%= form_for [:admin, @convention] do |f| %>
+    <% if @convention.new_record? %>
+        <legend>Crear nueva Jornada</legend>
+    <% else %>
+        <legend>Editar Jornada</legend>
+    <% end %>
+    
+    <% if @convention.errors.any? %>
+        <div class="alert alert-error">
+            <button class="close" data-dismiss="alert">×</button>
+            <ul>
+                <% @convention.errors.each_with_index do |msg, i| %>
+                    <li><%= msg[1] %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+
+    <div class="control-group">
+        <%= f.label :name, "Nombre:*" %>
+        <%= f.text_field :name, class: "span5" %>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :description, "Descripción:" %>
+        <%= f.text_area :description, class: "span5", rows: 7 %>
+    </div> 
+
+    <div class="control-group">
+        <%= f.label :start_date, "Fecha de inicio:*" %>
+        <%= f.text_field :start_date, class: "span5", placeholder: "dd/mm/yyyy" %>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :end_date, "Fecha de fin:*" %>
+        <%= f.text_field :end_date, class: "span5", placeholder: "dd/mm/yyyy" %>
+    </div>
+
+
+
+    <div class="form-actions">
+        <%= f.submit class: "btn btn-primary" %>
+    </div>    
+<% end %>

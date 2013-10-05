@@ -1,0 +1,64 @@
+.redactor_wysihtml5,
+.redactor_redactor {
+  float: none !important;
+}
+body {    
+    padding-bottom: 40px;
+    font-size: 12px;
+}
+body.admin {
+	font-size: 13px;
+    .sidebar-nav {
+    	padding: 9px 0;
+    }
+    .section-header {
+    	margin-bottom: 10px;
+    }
+    .tantito-mas {
+    	margin-left: 50px;
+    }
+    .page-header {
+        position: relative;
+        a.root {
+            position: absolute;
+            right: 0px;
+            top: 15px;
+        }
+    }
+
+    .stats {
+        .span1 {
+            min-width: 70px !important;
+        }
+    }
+    .thumby {
+      max-width: 170px;
+    }
+}
+
+
+/* conventions */
+#convs_table {
+    margin-top: 10px;    
+}
+/* posts form */
+form {
+    .visible-post {
+        margin-bottom: 20px;
+        input[type="checkbox"] {
+            float: left;
+            position: relative;
+            top: 0px;
+            margin-right: 8px;
+        }
+    }
+}
+
+
+@media (min-width: 980px) {
+    body {
+        padding-top: 60px;
+    }
+}// Place all the styles related to the admin/Conventions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/

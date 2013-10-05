@@ -1,0 +1,40 @@
+<% if notice.present? %>
+	<div class="alert alert-success">
+		<button class="close" data-dismiss="alert">×</button>
+		<%= notice %>
+	</div>
+<% end %>
+
+<h2>Jornadas</h2>
+
+<%= link_to "Nueva Jornada", new_admin_convention_path, class: "btn btn-primary" %>
+
+<table class="table table-bordered table-striped" id="convs_table">
+	<tr>
+		<th>Nombre</th>
+		<th>Fecha de Inicio</th>
+		<th>Fecha de Fin</th>
+		<th>Configuración</th>
+	</tr>
+
+	<% @conventions.each do |convention| %>
+	<tr>
+		<td>
+			<%= convention.name %>
+		</td>
+		<td>
+			<%= convention.start_date %>		
+		</td>
+		<td>
+			<%= convention.end_date %>		
+		</td>
+		<td>
+			<%= link_to "Editar", edit_admin_convention_path(convention) %>
+			<br>
+            <%= link_to "Eliminar", [:admin, convention], method: :delete, confirm: "Estas seguro de borrar esta Jornada?" %>
+            <br>          
+		</td>	
+	</tr>	
+<% end %>
+
+</table>
