@@ -4,6 +4,8 @@ class Convention < ActiveRecord::Base
 
 
   validates_presence_of :name, message: "Nombre no puede estar en blanco"
+  validates_presence_of :start_date, message: "Fecha de inicio no puede estar en blanco"
+  validates_presence_of :end_date, message: "Fecha de fin no puede estar en blanco"
 
 end
 

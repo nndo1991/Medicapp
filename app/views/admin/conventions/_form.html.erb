@@ -1,3 +1,16 @@
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker(
+        {dateFormat: "dd-mm-yy"}
+    );
+  });
+  $(function() {
+    $( "#datepicker2" ).datepicker(
+        {dateFormat: "dd-mm-yy"}
+        );
+  });
+  </script>
+
 <% if notice.present? %>
     <div class="alert alert-success">
         <button class="close" data-dismiss="alert">×</button>
@@ -36,12 +49,12 @@
 
     <div class="control-group">
         <%= f.label :start_date, "Fecha de inicio:*" %>
-        <%= f.text_field :start_date, class: "span5", placeholder: "dd/mm/yyyy" %>
+        <%= f.text_field :start_date, class: "span5", id: "datepicker" %>
     </div>
 
     <div class="control-group">
         <%= f.label :end_date, "Fecha de fin:*" %>
-        <%= f.text_field :end_date, class: "span5", placeholder: "dd/mm/yyyy" %>
+        <%= f.text_field :end_date, class: "span5", id: "datepicker2" %>
     </div>
 
 
