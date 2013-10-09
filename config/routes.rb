@@ -4,6 +4,7 @@ Medicapp::Application.routes.draw do
 
   namespace :admin do
     resources :conventions
+    resources :events
     match '/' => 'conventions#index', as: :home
   end
 
