@@ -1,0 +1,41 @@
+<% if notice.present? %>
+    <div class="alert alert-success">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= notice %>
+    </div>
+<% end %>
+
+<%= form_for [:admin, @user] do |f| %>
+    <% if @user.new_record? %>
+        <legend>Crear nuevo Administrador</legend>
+    <% else %>
+        <legend>Editar Administrador</legend>
+    <% end %>
+    
+    <% if @user.errors.any? %>
+        <div class="alert alert-error">
+            <button class="close" data-dismiss="alert">×</button>
+            <ul>
+                <% @user.errors.each_with_index do |msg, i| %>
+                    <li><%= msg[1] %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+
+    <div class="control-group">
+        <%= f.label :username, "Nombre:*" %>
+        <%= f.text_field :username, class: "span5" %>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :password, "Nueva Contraseña:*" %>
+        <%= f.password_field :password, class: "span5" %>
+    </div> 
+
+
+    <div class="form-actions">
+        <%= f.submit class: "btn btn-primary", confirm: "Seguro que deseas actualizar los datos?" %>
+    </div>    
+<% end %>

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="span1"></div>
+  <div class="span7 tantito-mas">
+    <div class="page-header">
+      <h3>Admin Medicapp <small>Inicia sesión</small></h3>
+    </div>
+    <%= form_tag admin_user_sessions_path, :method => :post, class: "well" do %>
+      <label>Usuario:</label>
+      <input type="text" class="span5" name="username" placeholder="Usuario">
+        <label>Password:</label>
+      <input type="password" class="span5" name="crypted_password" placeholder="Password">
+      <% if notice.present?  %>
+        <div class="alert alert-info">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert.present?  %>
+        <div class="alert alert-error">
+          <strong>×</strong> <%= alert %>
+        </div>
+      <% end %>
+      <div class="action">
+        <button type="submit" class="btn">Ingresar</button>
+      </div>      
+    <% end %>
+  </div>
+</div>
+
+<!-- 
+<%= form_tag admin_user_sessions_path, :method => :post do %>
+  <div class="field">
+    <%= label_tag :username %><br />
+    <%= text_field_tag :username %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Login" %>
+  </div>
+<% end %> -->

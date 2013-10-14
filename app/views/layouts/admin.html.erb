@@ -9,6 +9,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="clearfix admin">
+  <% if current_user %>
      <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -20,15 +21,17 @@
           <%= link_to "Medicapp - Admin", admin_home_path, class: "brand" %>          
           
           <ul class="nav pull-right">
-            <li><%= link_to "Cerrar sesión" %></li>
+            <li><%= link_to "Cerrar sesión", admin_logout_path, method: :post %></li>
           </ul>
         </div>
       </div>
     </div>
+  <% end %>
 
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
+          <% if current_user %>
             <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Menú</li>
@@ -36,10 +39,10 @@
               <li><a href="/admin/events"><i class="icon-edit"></i> Eventos</a></li>
               <li><a href="#"><i class="icon-picture"></i> Galería</a></li>
               <li><a href="#"><i class="icon-list"></i> Reportes</a></li>
-              <li><a href="#"><i class="icon-user"></i> Administrador</a></li>
+              <li><a href="/admin/users/<%= @current_user.id %>/edit"><i class="icon-user"></i> Administrador</a></li>
             </ul>
             </div><!--/.well -->
-
+            <% end %>
         </div><!--/span-->
         <div class="span10">
           <%= yield %>
@@ -48,9 +51,11 @@
 
       <hr>
 
+      <% if current_user %>
       <footer>
         <p>&copy; Medicapp - Admin 2013</p>
       </footer>
+      <% end %>
 
     </div><!--/.fluid-container-->
 

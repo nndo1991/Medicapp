@@ -1,11 +1,17 @@
 Medicapp::Application.routes.draw do
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   namespace :admin do
     resources :conventions
     resources :events
+    resources :user_sessions
+    resources :users
     match '/' => 'conventions#index', as: :home
+    get 'login' => 'user_sessions#new', :as => :login
+    post 'logout' => 'user_sessions#destroy', :as => :logout
   end
 
   # Sample resource route with options:
