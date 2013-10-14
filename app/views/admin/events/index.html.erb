@@ -1,1 +1,48 @@
+<% if notice.present? %>
+	<div class="alert alert-success">
+		<button class="close" data-dismiss="alert">×</button>
+		<%= notice %>
+	</div>
+<% end %>
+
 <h2>Eventos</h2>
+
+<%= link_to "Nuevo Evento", new_admin_event_path, class: "btn btn-primary" %>
+
+<table class="table table-bordered table-striped" id="convs_table">
+	<tr>
+		<th>Nombre</th>
+		<th>Tipo</th>
+		<th>Fecha</th>
+		<th>Hora</th>
+		<th>Lugar</th>
+		<th>Editar</th>
+	</tr>
+
+	<% @events.each do |event| %>
+	<tr>
+		<td>
+			<%= event.name %>
+		</td>
+		<td>
+			<%= event.event_type%>		
+		</td>
+		<td>
+			<%= event.date %>		
+		</td>
+		<td>
+			<%= event.time %>		
+		</td>
+		<td>
+			<%= event.place %>		
+		</td>
+		<td>
+			<%= link_to "Editar", edit_admin_event_path(event) %>
+			<br>
+            <%= link_to "Eliminar", [:admin, event], method: :delete, confirm: "Estas seguro de borrar este Evento?" %>
+            <br>          
+		</td>	
+	</tr>	
+<% end %>
+
+</table>

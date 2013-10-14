@@ -1,0 +1,80 @@
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker(
+        {dateFormat: "dd-mm-yy"}
+    );
+  });  
+</script>
+
+<% if notice.present? %>
+    <div class="alert alert-success">
+        <button class="close" data-dismiss="alert">×</button>
+        <%= notice %>
+    </div>
+<% end %>
+
+<%= form_for [:admin, @event] do |f| %>
+    <% if @event.new_record? %>
+        <legend>Crear nuevo Evento</legend>
+    <% else %>
+        <legend>Editar Evento</legend>
+    <% end %>
+    
+    <% if @event.errors.any? %>
+        <div class="alert alert-error">
+            <button class="close" data-dismiss="alert">×</button>
+            <ul>
+                <% @event.errors.each_with_index do |msg, i| %>
+                    <li><%= msg[1] %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+
+    <div class="control-group">
+        <%= f.label :name, "Nombre:*" %>
+        <%= f.text_field :name, class: "span5" %>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :event_type, "Tipo:" %>
+        <%= f.text_field :event_type, class: "span5" %>
+    </div> 
+
+    <div class="control-group">
+        <%= f.label :person, "Encargado:" %>
+        <%= f.text_field :person, class: "span5" %>
+    </div> 
+
+    <div class="control-group">
+        <%= f.label :description, "Descripción:" %>
+        <%= f.text_area :description, class: "span5", rows: 7 %>
+    </div> 
+
+    <div class="control-group">
+        <%= f.label :date, "Fecha:*" %>
+        <%= f.text_field :date, class: "span5", id: "datepicker" %>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :time, "Hora" %>
+        <%= f.text_field :time, class: "span5" %>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :place, "Lugar" %>
+        <%= f.text_field :place, class: "span5" %>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :convention_id, "Jornada:*" %>
+        <%= f.select(:convention_id, 
+            options_from_collection_for_select(Convention.order(:name).all, :id, :name, @event.convention_id),
+            prompt: "Selecciona una Jornada") %>
+    </div>
+
+    <div class="form-actions">
+        <%= f.submit class: "btn btn-primary" %>
+    </div>    
+<% end %>

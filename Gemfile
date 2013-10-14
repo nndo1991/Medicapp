@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'bootstrap-timepicker-rails'
 gem 'bootstrap-sass'
 
 # To use ActiveModel has_secure_password

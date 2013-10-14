@@ -2,6 +2,7 @@
  *= require_self
  *= require admin/bootstrap.min
  *= require admin/bootstrap-overrides
+ *= require bootstrap-timepicker
  *= require jquery.ui.all
  *= require_tree .
 */
