@@ -8,4 +8,9 @@ class Event < ActiveRecord::Base
   validates_presence_of :date, message: "Fecha no puede estar en blanco"
   validates_presence_of :time, message: "Hora no puede estar en blanco"
   validates_presence_of :convention_id, message: "Jornada no puede estar en blanco"
+
+  def start_time
+    date
+  end
+
 end

@@ -25,7 +25,7 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-timepicker-rails'
 gem 'bootstrap-sass'
 gem "sorcery"
-gem 'debugger'
+gem "simple_calendar", "~> 0.1.9"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

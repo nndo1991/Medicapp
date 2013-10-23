@@ -1,0 +1,7 @@
+<h1>Calendario</h1>
+
+<%= calendar @events do |event| %>
+  <div><%= event.time %>
+  	<%= event.name %>
+  </div>
+<% end %>
