@@ -10,13 +10,19 @@ Medicapp::Application.routes.draw do
     resources :user_sessions
     resources :users
     resources :gallery_images
+    resources :attendants
     match '/' => 'conventions#index', as: :home
     get 'login' => 'user_sessions#new', :as => :login
     post 'logout' => 'user_sessions#destroy', :as => :logout
   end
 
   root to: "interiors#index"
-  match 'calendario' => 'interiors#calendar', as: :calendar
+  match 'calendar' => 'interiors#calendar', as: :calendar
+  resources :attendants do
+  collection do
+    post :confirm
+  end
+end
   # Sample resource route with options:
   #   resources :products do
   #     member do

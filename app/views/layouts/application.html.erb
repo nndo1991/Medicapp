@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><a href="/">Inicio</a></li>
+      <li><%= link_to 'Asistir', new_attendant_path %></li>
+      <li><a href="/calendar">Calendario</a></li>
+    </ul>
+  </div>
+</div>
 <%= yield %>
 
 </body>

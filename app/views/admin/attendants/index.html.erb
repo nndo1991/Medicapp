@@ -1,0 +1,42 @@
+<% if notice.present? %>
+	<div class="alert alert-success">
+		<button class="close" data-dismiss="alert">×</button>
+		<%= notice %>
+	</div>
+<% end %>
+
+<h2>Asistentes</h2>
+
+<table class="table table-bordered table-striped" id="convs_table">
+	<tr>
+		<th>Nombre</th>
+		<th>Apellidos</th>
+		<th>Email</th>
+		<th>Status</th>
+		<th>Info</th>
+	</tr>
+
+	<% @attendants.each do |attendant| %>
+	<tr>
+		<td>
+			<%= attendant.name %>
+		</td>
+		<td>
+			<%= attendant.lastname%>		
+		</td>
+		<td>
+			<%= attendant.email %>		
+		</td>
+		<td>
+			<%= attendant.status %>		
+		</td>
+		<td>
+			<%= link_to "Ver info", admin_attendant_path(attendant) %>
+			<br>
+            <%= link_to "Eliminar", [:admin, attendant], method: :delete, confirm: "Estas seguro de borrar del registro a este asistente?" %>
+            <br> 	
+		</td>	
+	</tr>	
+<% end %>
+
+</table>
