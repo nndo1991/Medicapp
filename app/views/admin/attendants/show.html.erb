@@ -1,0 +1,62 @@
+<h2>Detalles del asistente</h2>
+<%= link_to "Regresar", admin_attendants_path %>
+<p>
+	<% if !@attendant.name.nil? %>
+	<%= @attendant.name %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.lastname.nil? %>
+	<%= @attendant.lastname %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.email.nil? %>
+	<%= @attendant.email %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.twitter.nil? %>
+	<%= @attendant.twitter %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.facebook.nil? %>
+	<%= @attendant.facebook %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.phone.nil? %>
+	<%= @attendant.phone %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.address.nil? %>
+	<%= @attendant.address %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.city.nil? %>
+	<%= @attendant.city %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.country.nil? %>
+	<%= @attendant.country %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.profession.nil? %>
+	<%= @attendant.profession %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.institution.nil? %>
+	<%= @attendant.institution %>
+	<% end %>
+</p>
+<p>
+	<% if !@attendant.interests.nil? %>
+	<%= @attendant.interests %>
+	<% end %>
+</p>
