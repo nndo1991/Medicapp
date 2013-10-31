@@ -26,6 +26,11 @@ gem 'bootstrap-timepicker-rails'
 gem 'bootstrap-sass'
 gem "sorcery"
 gem "simple_calendar", "~> 0.1.9"
+gem 'rmagick'
+gem 'carrierwave'
+gem 'fog'
+gem 'unf' 
+gem "mini_magick"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

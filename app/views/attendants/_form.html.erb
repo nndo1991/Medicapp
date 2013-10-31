@@ -1,75 +1,81 @@
-<%= form_for @attendant, :url => {:action => "confirm"} do |f| %>
+<% if !Convention.exists? %>
+    <h2>No hay eventos en este momento, regresa pronto</h2>
+<% else %>
+    <%= form_for @attendant, :url => {:action => "confirm"} do |f| %>
 
-	<div class="control-group">
-        <%= f.label :name, "Nombre:*" %>
-        <%= f.text_field :name, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :name, "Nombre:*" %>
+            <%= f.text_field :name, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :lastname, "Apellidos:*" %>
-        <%= f.text_field :lastname, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :lastname, "Apellidos:*" %>
+            <%= f.text_field :lastname, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :email, "Email:*" %>
-        <%= f.text_field :email, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :email, "Email:*" %>
+            <%= f.text_field :email, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :twitter, "Twitter:" %>
-        <%= f.text_field :twitter, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :twitter, "Twitter:" %>
+            <%= f.text_field :twitter, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :facebook, "Facebook:" %>
-        <%= f.text_field :facebook, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :facebook, "Facebook:" %>
+            <%= f.text_field :facebook, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :phone, "Teléfono:" %>
-        <%= f.text_field :phone, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :phone, "Teléfono:" %>
+            <%= f.text_field :phone, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :address, "Dirección:" %>
-        <%= f.text_area :address, class: "span5", rows: 7 %>
-    </div> 
+        <div class="control-group">
+            <%= f.label :address, "Dirección:" %>
+            <%= f.text_area :address, class: "span5", rows: 7 %>
+        </div> 
 
-    <div class="control-group">
-        <%= f.label :city, "Ciudad:" %>
-        <%= f.text_field :city, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :city, "Ciudad:" %>
+            <%= f.text_field :city, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :country, "País:" %>
-        <%= f.text_field :country, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :country, "País:" %>
+            <%= f.text_field :country, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :profession, "Profesión:" %>
-        <%= f.text_field :profession, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :profession, "Profesión:" %>
+            <%= f.text_field :profession, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :institution, "Institución:" %>
-        <%= f.text_field :institution, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :institution, "Institución:" %>
+            <%= f.text_field :institution, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.label :interests, "Intereses:" %>
-        <%= f.text_field :interests, class: "span5" %>
-    </div>
+        <div class="control-group">
+            <%= f.label :interests, "Intereses:" %>
+            <%= f.text_field :interests, class: "span5" %>
+        </div>
 
-    <div class="control-group">
-        <%= f.hidden_field :convention_id, value: Convention.last.id %>
-    </div>
+        <div class="control-group">
+            <%= f.hidden_field :convention_id, value: Convention.last.id %>
+        </div>
 
-    <div class="control-group">
-        <%= f.hidden_field :status, value: "registrado" %>
-    </div>
+        <div class="control-group">
+            <%= f.hidden_field :status, value: "registrado" %>
+        </div>
 
-    <div class="form-actions">
-        <%= f.submit value: "Registrarse", class: "btn btn-primary" %>
-    </div>
+        <div class="form-actions">
+            <%= f.submit value: "Registrarse", class: "btn btn-primary" %>
+        </div>
+
+    <% end %>
 
 <% end %>
+

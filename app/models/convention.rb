@@ -3,6 +3,8 @@ class Convention < ActiveRecord::Base
   attr_accessible :description, :end_date, :name, :start_date
 
   has_many :events, :dependent => :delete_all
+  has_many :attendants, :dependent => :delete_all
+  has_many :gallery_images, :dependent => :delete_all
 
 
   validates_presence_of :name, message: "Nombre no puede estar en blanco"

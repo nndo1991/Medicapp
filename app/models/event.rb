@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :event_type, message: "Tipo no puede estar en blanco"
   validates_presence_of :date, message: "Fecha no puede estar en blanco"
   validates_presence_of :time, message: "Hora no puede estar en blanco"
-  validates_presence_of :convention_id, message: "Jornada no puede estar en blanco"
+  validates_presence_of :convention_id, message: "Se debe asociar evento a una Jornada"
 
   def start_time
     date

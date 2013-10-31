@@ -3,33 +3,39 @@
 	<article>
 
 
+<div id="myCarousel" class="carousel slide">
+    <% @images = GalleryImage.order(:id) %>
+    <ol class="carousel-indicators hidden-phone">
+        <% @images.each_with_index do |image, index| %>
+            <li data-target="#myCarousel" class="<%= "active" if index == 0 %>" data-slide-to="<%= index %>"></li>
+        <% end %>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <% @images.each_with_index do |image, index| %>
+            <div class="<%= "active" if index == 0 %> item">
+                <%= image_tag image.image_url(:gallery) %>
+                <div class="carousel-caption">
+                    <% if image.title.present? %>
+                        <h4><%= image.title %></h4>
+                    <% end %>
+                    <% if image.text.present? %>
+                        <p><%= image.text %></p>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
 
-<div class="container">
-<div id="myCarousel" class="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-<div class="carousel-inner">  
-  <div class="active item"><img src='https://dev.twitter.com/sites/default/files/images_platform_object/arctic-blue-bird.jpg?1334604325'></div> 
-  <div class="item"><img src='https://dev.twitter.com/sites/default/files/images_platform_object/missouri_meadow_lark.jpg?1334604578'></div>  
-  <div class="item"><img src='https://dev.twitter.com/sites/default/files/images_platform_object/yellow_flycatcher.jpg?1334605975'></div> 
-</div>  
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
-</div>
-
-
-    <h2><%= @convention.name %></h2>
-    <h3><%= @convention.description %></h3>
+    <% if !Convention.exists?%>
+      <h2>No hay eventos en este momento, regresa pronto</h2>
+    <% else %>
+      <h2><%= @convention.name %></h2>
+      <h3><%= @convention.description %></h3>
+    <% end %>
     </article>
 </div>
-
-<script>
-$(function(){
-$('#myCarousel').carousel();
-});
-</script>

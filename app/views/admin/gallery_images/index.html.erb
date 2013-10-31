@@ -1,1 +1,39 @@
-<h3>Galería de Imágenes</h3>
+<% if notice.present? %>
+	<div class="alert alert-success">
+		<button class="close" data-dismiss="alert">×</button>
+		<%= notice %>
+	</div>
+<% end %>
+<h3>Galeria imagenes</h3>
+<%= link_to "Nueva imagen", new_admin_gallery_image_path, class: "btn btn-primary" %>
+<br><br>
+<table class="table table-bordered table-striped">
+	<tr>
+		<th class="imgs">Imagen</th>
+		<th>Título</th>
+		<th>Texto</th>
+		<th></th>
+	</tr>
+<% @images.each do |image| %>
+	<tr>
+		<td>
+			<% if image.image? %>
+				<%= image_tag image.image_url(:gallery), class: "thumby" %>
+			<% end %>
+		</td>
+		<td>
+			<%= image.title %><br>			
+		</td>
+		<td>
+			<% if image.text.present? %>
+				<%= truncate(image.text, length:100) %>
+			<% end %>
+		</td>
+		<td>
+			<%= link_to "Editar", edit_admin_gallery_image_path(image) %>
+			|
+            <%= link_to "Eliminar", [:admin, image], method: :delete, confirm: "Estas seguro de borrar esta imagen?" %>
+		</td>	
+	</tr>	
+<% end %>	
+</table>
