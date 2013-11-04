@@ -76,7 +76,9 @@
 <%= f.hidden_field :convention_id, class: "span5", value: @attendant.convention_id %>
 <%= f.hidden_field :status, class: "span5", value: @attendant.status %>
 
+
 <div class="form-actions">
+		<%= f.submit value: "Regresar", class: "btn", name: "edit_data" %>
         <%= f.submit value: "Confirmar", class: "btn btn-primary" %>
     </div>
 

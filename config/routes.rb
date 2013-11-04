@@ -18,9 +18,11 @@ Medicapp::Application.routes.draw do
 
   root to: "interiors#index"
   match 'calendar' => 'interiors#calendar', as: :calendar
+  resources :contact_messages
   resources :attendants do
   collection do
     post :confirm
+    post :correct
   end
 end
   # Sample resource route with options:

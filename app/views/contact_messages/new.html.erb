@@ -1,0 +1,49 @@
+<h1>Contacto</h1>
+<div class="contact row-fluid">
+    <article>
+    <p>
+        Te invitamos a que nos envíes tu mensaje en la siguiente forma de contacto.
+    </p>
+
+    <% if notice.present? %>
+        <div class="alert alert-success"><%= notice %></div>
+    <% end %>
+    <% if @message.errors.any? %>
+        <div id="form_errors">
+            <div class="alert alert-error">
+            	Por favor corrige lo siguiente para poder enviar tu mensaje:
+            <ul>
+                <% @message.errors.each_with_index do |msg, i| %>
+                    <li><%= msg[1] %></li>
+                <% end %>
+            </ul>
+            </div>
+        </div>
+    <% end %>
+	<%= form_for @message do |f| %>
+        <div class="control-group">
+            <%= f.label :name, "Nombre:*" %>
+            <%= f.text_field :name, class: "span5" %>
+        </div>
+
+        <div class="control-group">
+            <%= f.label :email, "Email:*" %>
+            <%= f.text_field :email, class: "span5" %>
+        </div>
+
+        <div class="control-group">
+            <%= f.label :phone, "Teléfono:" %>
+            <%= f.text_field :phone, class: "span5" %>
+        </div>    
+
+        <div class="control-group">
+            <%= f.label :comments, "Comentarios*:" %>
+            <%= f.text_area :comments, class: "span5", rows: 7 %>
+        
+        <div class="form-actions">
+            <%= f.submit value: "Enviar", class: "btn btn-primary" %>
+        </div>
+
+	<% end %>
+    </article>
+</div>
