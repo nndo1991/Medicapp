@@ -20,6 +20,24 @@ Medicapp::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+    # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'example.com',
+  user_name:            'congreso.emcs@gmail.com',
+  password:             'medic3admin',
+  authentication:       'plain',
+  enable_starttls_auto: true  }
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = { host: "gmail.com" }
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
