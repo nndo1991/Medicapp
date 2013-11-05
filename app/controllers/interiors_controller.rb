@@ -1,3 +1,4 @@
+
 class InteriorsController < ApplicationController
 
 	def index

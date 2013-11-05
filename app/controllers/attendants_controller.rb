@@ -19,8 +19,8 @@ class AttendantsController < ApplicationController
 			render :correct
 		else
 			if @attendant.save
-				RegisterMailer.welcome_message(@attendant).deliver
 				redirect_to new_attendant_path, notice: "Tu registro se ha completado."
+				RegisterMailer.welcome_message(@attendant).deliver
 			else
 				render :new
 			end
