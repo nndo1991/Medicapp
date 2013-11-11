@@ -31,6 +31,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'unf' 
 gem "mini_magick"
+gem 'fullcalendar-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -62,6 +62,7 @@ GEM
       nokogiri (~> 1.5)
       ruby-hmac
     formatador (0.2.4)
+    fullcalendar-rails (1.6.4.0)
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.1)
@@ -163,6 +164,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   fog
+  fullcalendar-rails
   jquery-rails
   jquery-ui-rails
   mini_magick

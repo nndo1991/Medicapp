@@ -3,6 +3,13 @@
 <% else %>
     <%= form_for @attendant, :url => {:action => "confirm"} do |f| %>
 
+        <% if notice.present? %>
+            <div class="alert alert-success">
+                <button class="close" data-dismiss="alert">×</button>
+                <%= notice %>
+            </div>
+        <% end %>
+
         <% if @attendant.errors.any? %>
         <div class="alert alert-error">
             <button class="close" data-dismiss="alert">×</button>

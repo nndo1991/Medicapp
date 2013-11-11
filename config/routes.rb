@@ -17,6 +17,7 @@ Medicapp::Application.routes.draw do
   end
 
   root to: "interiors#index"
+  resources :interiors, only: [:show]
   match 'calendar' => 'interiors#calendar', as: :calendar
   resources :contact_messages
   resources :attendants do

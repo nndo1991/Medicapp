@@ -1,8 +1,31 @@
-<h1>Calendario</h1>
+<script>
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			editable: false,
+			events: '/calendar.json',
+			eventClick: function(event) {
+        		if (event.url) {
+		            window.navigate(event.url);
+		        }
+    		}
+		});
+		
+	});
 
-<%= calendar @events do |event| %>
-  <div><%= event.time %>
-  	<%= event.name %>
-  </div>
-<% end %>
+</script>
+<style>
 
+	#calendar {
+		width: 900px;
+		margin: 0 auto;
+		}
+
+</style>
+
+<div id='calendar'></div>

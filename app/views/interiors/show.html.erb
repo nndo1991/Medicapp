@@ -1,0 +1,69 @@
+<%= link_to 'Regresar', calendar_path %>
+
+<h2>Detalles del evento</h2>
+
+<% if !@event.name.empty? %>
+	<div class="info">
+	<b>Nombre: </b>
+	</div>
+	<div class="data">
+		<%= @event.name %>
+	</div>
+	<br/>
+<% end %>
+
+<% if !@event.event_type.empty? %>
+	<div class="info">
+	<b>Tipo: </b>
+	</div>
+	<div class="data">
+		<%= @event.event_type %>
+	</div>
+	<br/>
+<% end %>
+
+<% if !@event.person.empty? %>
+	<div class="info">
+	<b>Encargado: </b>
+	</div>
+	<div class="data">
+		<%= @event.person %>
+	</div>
+	<br/>
+<% end %>
+
+<% if !@event.description.empty? %>
+	<div class="info">
+	<b>Descripción: </b>
+	</div>
+	<div class="data">
+		<%= @event.description %>
+	</div>
+	<br/>
+<% end %>
+
+	<div class="info">
+	<b>Fecha: </b>
+	</div>
+	<div class="data">
+		<%= @event.date.strftime("%d-%m-%Y") %>
+	</div>
+	<br/>
+
+	<div class="info">
+	<b>Hora: </b>
+	</div>
+	<div class="data">
+		<%= @event.time.strftime("%I:%M %p") %>
+	</div>
+	<br/>
+
+<% if !@event.place.empty? %>
+	<div class="info">
+	<b>Lugar: </b>
+	</div>
+	<div class="data">
+		<%= @event.place %>
+	</div>
+	<br/>
+<% end %>

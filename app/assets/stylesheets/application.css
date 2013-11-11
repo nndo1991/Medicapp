@@ -11,5 +11,6 @@
  *= require_self
  *= require admin/bootstrap.min
  *= require admin/bootstrap-overrides
+ *= require fullcalendar
  *= require_tree .
  */
