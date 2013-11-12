@@ -68,7 +68,7 @@
 	<% end %>
 </p>
 <p>
-	<% if !@attendant.interests.empty? %>
+	<% if !@attendant.interests.nil? %>
 	<%= f.hidden_field :interests, class: "span5", value: @attendant.interests %>
 	<% end %>
 </p>
@@ -78,7 +78,7 @@
 
 <div class="form-actions">
 		<%= f.submit value: "Regresar", class: "btn", name: "edit_data" %>
-        <%= f.submit value: "Confirmar", class: "btn btn-primary" %>
+        <%= f.submit value: "Confirmar", class: "btn btn-primary", onclick: "alert('El registro puede tomar unos segundos, te pedimos paciencia. Oprime \"Ok\" para continuar')" %>
     </div>
 
 <% end %>
