@@ -1,10 +1,10 @@
-<h1>Registro</h1>
-
-<p>Por favor llena los siguientes datos para asistir al evento. Recibirás un correo con tu pase al terminar tu registro</p>
 
 <% if !Convention.exists? %>
     <h2>No hay eventos en este momento, regresa pronto</h2>
 <% else %>
+    <h1>Registro</h1>
+
+    <p>Por favor llena los siguientes datos para asistir al evento. Recibirás un correo con tu pase al terminar tu registro</p>
     <%= form_for @attendant, :url => {:action => "confirm"} do |f| %>
 
         <% if notice.present? %>
@@ -72,7 +72,10 @@
 
         <div class="control-group">
             <%= f.label :profession, "Profesión:" %>
-            <%= f.text_field :profession, class: "span5" %>
+            <%= f.select(:profession, 
+            Attendant::PROFESSION_TYPES,
+            prompt: "Selecciona una profesión") %>
+        </div>
         </div>
 
         <div class="control-group">
@@ -82,7 +85,15 @@
 
         <div class="control-group">
             <%= f.label :interests, "Intereses:" %>
-            <%= f.text_field :interests, class: "span5" %>
+            <%= f.check_box(:interests, { :multiple => true }, "Conferencias", nil) %> &nbsp;&nbsp;Conferencias
+            <br />
+            <%= f.check_box(:interests, { :multiple => true }, "Talleres", nil) %>&nbsp;&nbsp;&nbsp;Talleres
+            <br />
+            <%= f.check_box(:interests, { :multiple => true }, "Eventos culturales", nil) %>&nbsp;&nbsp;&nbsp;Eventos culturales
+            <br />
+            <%= f.check_box(:interests, { :multiple => true }, "Mesas de diálogo", nil) %>&nbsp;&nbsp;&nbsp;Mesas de diálogo
+            <br />
+            <%= f.check_box(:interests, { :multiple => true }, "Intercambio de Experiencias", nil) %>&nbsp;&nbsp;&nbsp;Intercambio de experiencias
         </div>
 
         <div class="control-group">

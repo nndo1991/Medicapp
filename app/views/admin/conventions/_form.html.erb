@@ -60,6 +60,10 @@
 
 
     <div class="form-actions">
-        <%= f.submit class: "btn btn-primary" %>
+        <% if @convention.new_record? %>
+            <%= f.submit value: "Crear Jornada", class: "btn btn-primary" %>
+        <% else %>
+            <%= f.submit value: "Actualizar Jornada", class: "btn btn-primary" %>
+        <% end %>
     </div>    
 <% end %>

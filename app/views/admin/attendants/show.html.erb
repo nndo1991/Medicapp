@@ -1,62 +1,100 @@
 <h2>Detalles del asistente</h2>
 <%= link_to "Regresar", admin_attendants_path %>
+<br /><br />
+
+<%= form_for [:admin, @attendant], :url => {:action => "update"} do |f| %>
 <p>
 	<% if !@attendant.name.nil? %>
+	<b>Nombre: </b>
 	<%= @attendant.name %>
+	<%= f.hidden_field :name, value: @attendant.name %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.lastname.nil? %>
+	<b>Apellidos: </b>
 	<%= @attendant.lastname %>
+	<%= f.hidden_field :lastname, value: @attendant.lastname %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.email.nil? %>
+	<b>Correo: </b>
 	<%= @attendant.email %>
+	<%= f.hidden_field :email, value: @attendant.email %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.twitter.nil? %>
+	<b>Twitter: </b>
 	<%= @attendant.twitter %>
+	<%= f.hidden_field :twitter, value: @attendant.twitter %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.facebook.nil? %>
+	<b>Facebook: </b>
 	<%= @attendant.facebook %>
+	<%= f.hidden_field :facebook, value: @attendant.facebook %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.phone.nil? %>
+	<b>Teléfono: </b>
 	<%= @attendant.phone %>
+	<%= f.hidden_field :phone, value: @attendant.phone %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.address.nil? %>
+	<b>Dirección: </b>
 	<%= @attendant.address %>
+	<%= f.hidden_field :address, value: @attendant.address %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.city.nil? %>
+	<b>Ciudad: </b>
 	<%= @attendant.city %>
+	<%= f.hidden_field :city, value: @attendant.city %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.country.nil? %>
+	<b>País: </b>
 	<%= @attendant.country %>
+	<%= f.hidden_field :country, value: @attendant.country %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.profession.nil? %>
+	<b>Profesión: </b>
 	<%= @attendant.profession %>
+	<%= f.hidden_field :profession, value: @attendant.profession %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.institution.nil? %>
+	<b>Institución: </b>
 	<%= @attendant.institution %>
+	<%= f.hidden_field :institution, value: @attendant.institution %>
 	<% end %>
 </p>
 <p>
 	<% if !@attendant.interests.nil? %>
-	<%= @attendant.interests %>
+	<b>Intereses: </b>
+	<% s = @attendant.interests %>
+	 <% s = s[1, s.length - 2] %>
+	 <%= s.delete("\"") %>
+	<%= f.hidden_field :interests, value: @attendant.interests %>
 	<% end %>
 </p>
+	
+	<b>Status: </b>
+	<%= @attendant.status %>
+	<%= f.hidden_field :status, value: "asistió" %>
+
+	<div class="form-actions">
+            <%= f.submit value: "Confirmar asistencia", class: "btn btn-primary" %>
+        </div>
+<% end %>

@@ -34,7 +34,7 @@
     </div>
 
     <div class="control-group">
-        <%= f.label :text, "Texto:" %>
+        <%= f.label :text, "Descripción:" %>
         <%= f.text_field :text, class: "span5" %>
     </div>
 
@@ -48,6 +48,10 @@
 
 
     <div class="form-actions">
-        <%= f.submit class: "btn btn-primary" %>
+        <% if @image.new_record? %>
+            <%= f.submit value: "Cargar Imagen", class: "btn btn-primary" %>
+        <% else %>
+            <%= f.submit value: "Actualizar datos", class: "btn btn-primary" %>
+        <% end %>
     </div>    
 <% end %>

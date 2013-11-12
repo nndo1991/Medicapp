@@ -3,6 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def contact_message(message)
 		@message = message
-		mail to: "medic_app@hotmail.com", subject: "Visitante en Medicapp"
+		mail to: "congreso.emcs@gmail.com", subject: "Visitante en Medicapp"
 	end
 end

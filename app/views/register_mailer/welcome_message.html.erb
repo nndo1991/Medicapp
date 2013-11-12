@@ -6,7 +6,7 @@
 <body>
 
 <% 
-@link = "medicapp1.herokuapp.com/admin/confirm/"+@message.id.to_s
+@link = "medicapp1.herokuapp.com/admin/attendants/"+@message.id.to_s
 %>
 
 
@@ -17,7 +17,6 @@
 	
 	<img src='https://chart.googleapis.com/chart?cht=qr&chl=<%= @link %>&chs=300x300'/>
 	
-	Te esperamos!!
 </div>
 
 

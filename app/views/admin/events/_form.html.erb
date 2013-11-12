@@ -58,7 +58,7 @@
     </div>
 
     <div class="control-group">
-        <%= f.label :time, "Hora:*" %>
+        <%= f.label :time, "Hora:* (HH:MM de 24 horas. Ej: 13:30)" %>
         <%= f.text_field :time, class: "span5" %>
     </div>
 
@@ -75,6 +75,10 @@
     </div>
 
     <div class="form-actions">
-        <%= f.submit class: "btn btn-primary" %>
+        <% if @event.new_record? %>
+            <%= f.submit value: "Crear Evento", class: "btn btn-primary" %>
+        <% else %>
+            <%= f.submit value: "Actualizar Evento", class: "btn btn-primary" %>
+        <% end %>
     </div>    
 <% end %>

@@ -3,8 +3,9 @@
 	<article>
 
 
+<% @images = GalleryImage.order(:id) %>
+<% if !@images.empty? %>
 <div id="myCarousel" class="carousel slide">
-    <% @images = GalleryImage.order(:id) %>
     <ol class="carousel-indicators hidden-phone">
         <% @images.each_with_index do |image, index| %>
             <li data-target="#myCarousel" class="<%= "active" if index == 0 %>" data-slide-to="<%= index %>"></li>
@@ -30,6 +31,7 @@
       <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>
+<% end %>
 
     <% if !Convention.exists?%>
       <h2>No hay eventos en este momento, regresa pronto</h2>
