@@ -4,6 +4,8 @@
 
 .carousel{
     width: 592px;
+    margin-right: auto;
+    margin-left: auto;
 }
 .carousel-control{
     font-size: 40px;
@@ -11,4 +13,33 @@
     height: 30px;
     line-height: 23px;
     top:43%;
+}
+
+.inicio{
+	margin-top: 100px;
+}
+
+@media (max-width: 480px) {
+
+   	.carousel-caption p{
+    font-size: 13px;
+}
+
+.inicio{
+    margin-top: 20px;
+}
+
+.carousel{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.carousel-control{
+    font-size: 40px;
+    width: 30px;
+    height: 30px;
+    line-height: 23px;
+    top:43%;
+}
+
 }

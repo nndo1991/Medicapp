@@ -6,19 +6,19 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+<%= render 'layouts/header' %>
+
+<script type='text/javascript'>
+    $(document).ready(function() {
+         $('.carousel').carousel({
+             interval: 5000
+         })
+    });    
+</script>
 <body>
-
-<div class="navbar">
-  <div class="navbar-inner">
-    <ul class="nav">
-      <li><a href="/">Inicio</a></li>
-      <li><%= link_to 'Asistir', new_attendant_path %></li>
-      <li><a href="/calendar">Calendario</a></li>
-      <li><%= link_to 'Contáctanos', new_contact_message_path %></li>
-    </ul>
-  </div>
-</div>
+<%= render 'layouts/menubar' %>
 <%= yield %>
-
-</body>
+    <%= render 'layouts/footer' %>
+  </body>
 </html>
+

@@ -1,84 +1,90 @@
-<h3>Verifica que tu información sea correcta</h3>
+<div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+			<h3>Verifica que tu información sea correcta</h3>
 
-<%= form_for @attendant do |f| %>
-<p>
-	<% if !@attendant.name.empty? %>
-	<%= @attendant.name %>
-	<%= f.hidden_field :name, class: "span5", value: @attendant.name %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.lastname.empty? %>
-	<%= @attendant.lastname %>
-	<%= f.hidden_field :lastname, class: "span5", value: @attendant.lastname %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.email.empty? %>
-	<%= @attendant.email %>
-	<%= f.hidden_field :email, class: "span5", value: @attendant.email %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.twitter.empty? %>
-	<%= @attendant.twitter %>
-	<%= f.hidden_field :twitter, class: "span5", value: @attendant.twitter %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.facebook.empty? %>
-	<%= @attendant.facebook %>
-	<%= f.hidden_field :facebook, class: "span5", value: @attendant.facebook %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.phone.empty? %>
-	<%= @attendant.phone %>
-	<%= f.hidden_field :phone, class: "span5", value: @attendant.phone %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.address.empty? %>
-	<%= @attendant.address %>
-	<%= f.hidden_field :address, class: "span5", value: @attendant.address %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.city.empty? %>
-	<%= @attendant.city %>
-	<%= f.hidden_field :city, class: "span5", value: @attendant.city %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.country.empty? %>
-	<%= @attendant.country %>
-	<%= f.hidden_field :country, class: "span5", value: @attendant.country %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.profession.empty? %>
-	<%= @attendant.profession %>
-	<%= f.hidden_field :profession, class: "span5", value: @attendant.profession %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.institution.empty? %>
-	<%= @attendant.institution %>
-	<%= f.hidden_field :institution, class: "span5", value: @attendant.institution %>
-	<% end %>
-</p>
-<p>
-	<% if !@attendant.interests.nil? %>
-	<%= f.hidden_field :interests, class: "span5", value: @attendant.interests %>
-	<% end %>
-</p>
-<%= f.hidden_field :convention_id, class: "span5", value: @attendant.convention_id %>
-<%= f.hidden_field :status, class: "span5", value: @attendant.status %>
+			<%= form_for @attendant do |f| %>
+			<p class="confirm">
+				<% if !@attendant.name.empty? %>
+				<%= @attendant.name %>
+				<%= f.hidden_field :name, class: "span5", value: @attendant.name %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.lastname.empty? %>
+				<%= @attendant.lastname %>
+				<%= f.hidden_field :lastname, class: "span5", value: @attendant.lastname %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.email.empty? %>
+				<%= @attendant.email %>
+				<%= f.hidden_field :email, class: "span5", value: @attendant.email %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.twitter.empty? %>
+				<%= @attendant.twitter %>
+				<%= f.hidden_field :twitter, class: "span5", value: @attendant.twitter %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.facebook.empty? %>
+				<%= @attendant.facebook %>
+				<%= f.hidden_field :facebook, class: "span5", value: @attendant.facebook %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.phone.empty? %>
+				<%= @attendant.phone %>
+				<%= f.hidden_field :phone, class: "span5", value: @attendant.phone %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.address.empty? %>
+				<%= @attendant.address %>
+				<%= f.hidden_field :address, class: "span5", value: @attendant.address %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.city.empty? %>
+				<%= @attendant.city %>
+				<%= f.hidden_field :city, class: "span5", value: @attendant.city %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.country.empty? %>
+				<%= @attendant.country %>
+				<%= f.hidden_field :country, class: "span5", value: @attendant.country %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.profession.empty? %>
+				<%= @attendant.profession %>
+				<%= f.hidden_field :profession, class: "span5", value: @attendant.profession %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.institution.empty? %>
+				<%= @attendant.institution %>
+				<%= f.hidden_field :institution, class: "span5", value: @attendant.institution %>
+				<% end %>
+			</p>
+			<p class="confirm">
+				<% if !@attendant.interests.nil? %>
+				<%= f.hidden_field :interests, class: "span5", value: @attendant.interests %>
+				<% end %>
+			</p>
+			<%= f.hidden_field :convention_id, class: "span5", value: @attendant.convention_id %>
+			<%= f.hidden_field :status, class: "span5", value: @attendant.status %>
 
 
-<div class="form-actions">
-		<%= f.submit value: "Regresar", class: "btn", name: "edit_data" %>
-        <%= f.submit value: "Confirmar", class: "btn btn-primary", onclick: "alert('El registro puede tomar unos segundos, te pedimos paciencia. Oprime \"Ok\" para continuar')" %>
-    </div>
+			<div class="form-actions">
+					<%= f.submit value: "Regresar", class: "btn", name: "edit_data" %>
+			        <%= f.submit value: "Confirmar", class: "btn btn-primary", onclick: "alert('El registro puede tomar unos segundos, te pedimos paciencia.')" %>
+			    </div>
 
-<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

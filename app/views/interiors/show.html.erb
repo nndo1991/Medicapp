@@ -1,69 +1,127 @@
-<%= link_to 'Regresar', calendar_path %>
+			<div class="span4 centro">
+				<ul class="pager">
+					<li class="previous">
+						<a href="/calendar">&larr; Eventos</a>
+					</li>
+				</ul>
+			</div>
 
-<h2>Detalles del evento</h2>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span10 offset1">
+					<div class="well well-large">
+						<div class="row-fluid text-center">
+							<div class="span4 offset4">
+								<div class="row-fluid">
+									<div class="span12">
+										<p class="lead">
+											<% if !@event.name.empty? %>
+												<div class="info">
+												<b>Nombre: </b>
+												</div>
+												<div class="data">
+													<%= @event.name %>
+												</div>
+												<br/>
+											<% end %>
+										</p>
+									</div>
+								</div>
 
-<% if !@event.name.empty? %>
-	<div class="info">
-	<b>Nombre: </b>
-	</div>
-	<div class="data">
-		<%= @event.name %>
-	</div>
-	<br/>
-<% end %>
+								<div class="row-fluid">
+									<div class="span12">
+										<p class="lead">
+											<% if !@event.event_type.empty? %>
+												<div class="info">
+												<b>Tipo: </b>
+												</div>
+												<div class="data">
+													<%= @event.event_type %>
+												</div>
+												<br/>
+											<% end %>
+										</p>
+									</div>
+								</div>
+								<div class="row-fluid">
+									<div class="span12">
+										<p class="lead">
+											<% if !@event.person.empty? %>
+												<div class="info">
+												<b>Encargado: </b>
+												</div>
+												<div class="data">
+													<%= @event.person %>
+												</div>
+												<br/>
+											<% end %>
+										</p>
+									</div>
+								</div>
 
-<% if !@event.event_type.empty? %>
-	<div class="info">
-	<b>Tipo: </b>
-	</div>
-	<div class="data">
-		<%= @event.event_type %>
-	</div>
-	<br/>
-<% end %>
+								<div class="row-fluid">
+									<div class="span12">
+										<p class="lead">
+											<% if !@event.description.empty? %>
+												<div class="info">
+												<b>Descripción: </b>
+												</div>
+												<div class="data">
+													<%= @event.description %>
+												</div>
+												<br/>
+											<% end %>
+										</p>
+									</div>
+								</div>
 
-<% if !@event.person.empty? %>
-	<div class="info">
-	<b>Encargado: </b>
-	</div>
-	<div class="data">
-		<%= @event.person %>
-	</div>
-	<br/>
-<% end %>
+								<div class="row-fluid">
+									<div class="span12">
+										<p class="lead">
+												<div class="info">
+												<b>Fecha: </b>
+												</div>
+												<div class="data">
+													<%= @event.date.strftime('%d-%b-%Y') %>
+												</div>
+												<br/>
+										</p>
+									</div>
+								</div>
 
-<% if !@event.description.empty? %>
-	<div class="info">
-	<b>Descripción: </b>
-	</div>
-	<div class="data">
-		<%= @event.description %>
-	</div>
-	<br/>
-<% end %>
+								<div class="row-fluid">
+									<div class="span12">
+										<p class="lead">
+												<div class="info">
+												<b>Hora: </b>
+												</div>
+												<div class="data">
+													<%= @event.time.strftime("%I:%M %p") %>
+												</div>
+												<br/>
+										</p>
+									</div>
+								</div>
 
-	<div class="info">
-	<b>Fecha: </b>
-	</div>
-	<div class="data">
-		<%= @event.date.strftime("%d-%m-%Y") %>
-	</div>
-	<br/>
-
-	<div class="info">
-	<b>Hora: </b>
-	</div>
-	<div class="data">
-		<%= @event.time.strftime("%I:%M %p") %>
-	</div>
-	<br/>
-
-<% if !@event.place.empty? %>
-	<div class="info">
-	<b>Lugar: </b>
-	</div>
-	<div class="data">
-		<%= @event.place %>
-	</div>
-	<br/>
-<% end %>
+								<div class="row-fluid">
+									<div class="span12">
+										<p class="lead">
+											<% if !@event.place.empty? %>
+												<div class="info">
+												<b>Lugar: </b>
+												</div>
+												<div class="data">
+													<%= @event.place %>
+												</div>
+												<br/>
+											<% end %>
+										</p>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

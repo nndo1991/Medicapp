@@ -16,6 +16,9 @@
     		}
 		});
 		
+		if ($(window).width() < 480){
+    		$('#calendar').hide();
+        }
 	});
 
 </script>
@@ -29,3 +32,22 @@
 </style>
 
 <div id='calendar'></div>
+<div class="mobile-calendar">
+	<table class="table">
+		<tr>
+			<td><h4>Próximos Eventos</h4></td>
+		</tr>
+		<% @events.each do |event| %>
+			<% if event.date >= Date.today %>
+			<tr>
+				<td>
+					<p class="nombre-evento"><%= event.name %></p>
+					<p><%= event.date.strftime('%d-%b-%Y') %> &nbsp;&nbsp;<%= event.time.strftime('%I:%M %p') %></p>
+					<p><%= event.place %></p>
+					<p><%= link_to "Más info", interior_path(event) %></p>
+				</td>
+			</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>

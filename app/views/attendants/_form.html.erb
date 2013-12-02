@@ -1,114 +1,163 @@
-
 <% if !Convention.exists? %>
-    <h2>No hay eventos en este momento, regresa pronto</h2>
-<% else %>
-    <h1>Registro</h1>
-
-    <p>Por favor llena los siguientes datos para asistir al evento. Recibirás un correo con tu pase al terminar tu registro</p>
-    <%= form_for @attendant, :url => {:action => "confirm"} do |f| %>
-
-        <% if notice.present? %>
-            <div class="alert alert-success">
-                <button class="close" data-dismiss="alert">×</button>
-                <%= notice %>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+                <h2>No hay eventos en este momento, regresa pronto</h2>
             </div>
-        <% end %>
+        </div>
+    </div>
+<% else %>
 
-        <% if @attendant.errors.any? %>
-        <div class="alert alert-error">
+    <% if notice.present? %>
+        <div class="alert alert-success">
             <button class="close" data-dismiss="alert">×</button>
-            <ul>
-                <% @attendant.errors.each_with_index do |msg, i| %>
-                    <li><%= msg[1] %></li>
-                <% end %>
-            </ul>
+            <%= notice %>
         </div>
-        <% end %>
+    <% end %>
 
-        <div class="control-group">
-            <%= f.label :name, "Nombre:*" %>
-            <%= f.text_field :name, class: "span5" %>
+    <% if @attendant.errors.any? %>
+    <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">×</button>
+        <ul>
+            <% @attendant.errors.each_with_index do |msg, i| %>
+                <li><%= msg[1] %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10 offset1">
+
+                <h1>Registro</h1>
+                <p class="lead">Por favor llena los siguientes datos para asistir al evento. </p>
+                <p class="lead">Recibirás un correo con tu pase al terminar tu registro.</p>
+            </div>
         </div>
+    </div>        
 
-        <div class="control-group">
-            <%= f.label :lastname, "Apellidos:*" %>
-            <%= f.text_field :lastname, class: "span5" %>
-        </div>
+    <%= form_for @attendant, class: "forma", :url => {:action => "confirm"},:html => {:class =>
+'form-horizontal'} do |f| %>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span10 offset1" style="margin-left:0px;">
 
-        <div class="control-group">
-            <%= f.label :email, "Email:*" %>
-            <%= f.text_field :email, class: "span5" %>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :name, "Nombre*", class: "control-label", for: "inputNombre" %>
+                        <div class="controls">
+                        <%= f.text_field :name, type: "text", id: "inputNombre", placeholder: "nombre", required: true %>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.label :twitter, "Twitter:" %>
-            <%= f.text_field :twitter, class: "span5" %>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :lastname, "Apellidos*", class: "control-label", for: "inputApellidos" %>
+                        <div class="controls">
+                        <%= f.text_field :lastname, type: "text", id: "inputApellidos", placeholder: "apellidos", required: true %>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.label :facebook, "Facebook:" %>
-            <%= f.text_field :facebook, class: "span5" %>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :email, "Email*", class: "control-label", for: "inputEmail" %>
+                        <div class="controls">
+                        <%= f.text_field :email, type: "email", id: "inputEmail", placeholder: "email", required: true %>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.label :phone, "Teléfono:" %>
-            <%= f.text_field :phone, class: "span5" %>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :twitter, "Twitter", class: "control-label", for: "inputTwitter" %>
+                        <div class="controls">
+                            <div class="input-prepend">
+                                    <span class="add-on">@</span>
+                                    <%= f.text_field :twitter, class: "span11", type: "text", id: "inputTwitter", placeholder: "usuario"%>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.label :address, "Dirección:" %>
-            <%= f.text_area :address, class: "span5", rows: 7 %>
-        </div> 
+                    <div class="control-group">
+                        <%= f.label :facebook, "Facebook", class: "control-label", for: "inputFacebook" %>
+                        <div class="controls">
+                        <%= f.text_field :facebook, type: "text", id: "inputFacebook", placeholder: "usuario" %>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.label :city, "Ciudad:" %>
-            <%= f.text_field :city, class: "span5" %>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :phone, "Teléfono", class: "control-label", for: "inputTel" %>
+                        <div class="controls">
+                        <%= f.text_field :phone, type: "tel", id: "inputTel", placeholder: "teléfono" %>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.label :country, "País:" %>
-            <%= f.text_field :country, class: "span5" %>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :address, "Dirección", class: "control-label", for: "inputDir" %>
+                        <div class="controls">
+                        <%= f.text_field :address, type: "text", id: "inputDir", placeholder: "dirección"%>
+                        </div>
+                    </div> 
 
-        <div class="control-group">
-            <%= f.label :profession, "Profesión:" %>
-            <%= f.select(:profession, 
-            Attendant::PROFESSION_TYPES,
-            prompt: "Selecciona una profesión") %>
-        </div>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :city, "Ciudad", class: "control-label", for: "inputCiudad" %>
+                        <div class="controls">
+                        <%= f.text_field :city, type: "text", id: "inputCiudad", placeholder: "ciudad" %>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.label :institution, "Institución:" %>
-            <%= f.text_field :institution, class: "span5" %>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :country, "País", class: "control-label", for: "inputPais" %>
+                        <div class="controls">
+                        <%= f.text_field :country, type: "text", id: "inputPais", placeholder: "país" %>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.label :interests, "Intereses:" %>
-            <%= f.check_box(:interests, { :multiple => true }, "Conferencias", nil) %> &nbsp;&nbsp;Conferencias
-            <br />
-            <%= f.check_box(:interests, { :multiple => true }, "Talleres", nil) %>&nbsp;&nbsp;&nbsp;Talleres
-            <br />
-            <%= f.check_box(:interests, { :multiple => true }, "Eventos culturales", nil) %>&nbsp;&nbsp;&nbsp;Eventos culturales
-            <br />
-            <%= f.check_box(:interests, { :multiple => true }, "Mesas de diálogo", nil) %>&nbsp;&nbsp;&nbsp;Mesas de diálogo
-            <br />
-            <%= f.check_box(:interests, { :multiple => true }, "Intercambio de Experiencias", nil) %>&nbsp;&nbsp;&nbsp;Intercambio de experiencias
-        </div>
+                    <div class="control-group">
+                        <%= f.label :profession, "Profesión", class: "control-label", for: "inputProf" %>
+                        <div class="controls">
+                        <%= f.select(:profession, 
+                        Attendant::PROFESSION_TYPES,
+                        prompt: "Selecciona una profesión", id: "inputProf") %>    
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.hidden_field :convention_id, value: Convention.last.id %>
-        </div>
+                    <div class="control-group">
+                        <%= f.label :institution, "Institución", class: "control-label", for: "inputInst" %>
+                        <div class="controls">
+                        <%= f.text_field :institution, type: "text", id: "inputInst", placeholder: "institución" %>
+                        </div>
+                    </div>
 
-        <div class="control-group">
-            <%= f.hidden_field :status, value: "registrado" %>
-        </div>
+                    
 
-        <div class="form-actions">
-            <%= f.submit value: "Registrarse", class: "btn btn-primary" %>
+                    <div class="control-group">
+                        <%= f.label :interests, "Intereses:", class: "control-label", for: "inputIntereses" %>
+                        <div class="controls">
+                            <%= f.check_box(:interests, { :multiple => true }, "Conferencias", nil) %> &nbsp;&nbsp;Conferencias
+                            <br />
+                            <%= f.check_box(:interests, { :multiple => true }, "Talleres", nil) %>&nbsp;&nbsp;&nbsp;Talleres
+                            <br />
+                            <%= f.check_box(:interests, { :multiple => true }, "Eventos culturales", nil) %>&nbsp;&nbsp;&nbsp;Eventos culturales
+                            <br />
+                            <%= f.check_box(:interests, { :multiple => true }, "Mesas de diálogo", nil) %>&nbsp;&nbsp;&nbsp;Mesas de diálogo
+                            <br />
+                            <%= f.check_box(:interests, { :multiple => true }, "Intercambio de Experiencias", nil) %>&nbsp;&nbsp;&nbsp;Intercambio de experiencias
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <%= f.hidden_field :convention_id, value: Convention.last.id %>
+                    </div>
+
+                    <div class="control-group">
+                        <%= f.hidden_field :status, value: "registrado" %>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <%= f.submit value: "Registrarse", class: "btn btn-primary" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     <% end %>
 
 <% end %>
-

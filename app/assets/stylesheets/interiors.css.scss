@@ -7,10 +7,71 @@
 .info{
 
 	display: inline-block;
+	margin-left: auto;
+	font-size: 15px;
 
 }
 
 .data{
 	display: inline-block;
+	margin-right: auto;
+	font-size: 15px;
 	
+}
+
+.centro{
+	margin: 0 auto !important;
+   	float: none !important;
+   	ul{
+   		padding-left: 120px;
+   	}
+}
+
+.mobile-calendar{
+	display: none;
+}
+
+@media (max-width: 480px) {
+
+.calendar{
+	display: none;
+}
+
+.mobile-calendar{
+	display: block;
+}
+
+.nombre-evento{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+h4{
+	text-align: center;
+	color: grey;
+}
+
+.info{
+
+	display: inline-block;
+	margin-left: auto;
+	font-size: 15px;
+
+}
+
+.data{
+	display: inline-block;
+	margin-right: auto;
+	font-size: 15px;
+	
+}
+
+.centro{
+	margin: 0 auto !important;
+   	float: none !important;
+   	ul{
+   		padding-left: 85px;
+   	}
+}
+
 }
