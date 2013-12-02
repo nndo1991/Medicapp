@@ -39,7 +39,9 @@
 
     <div class="control-group">
         <%= f.label :event_type, "Tipo:*" %>
-        <%= f.text_field :event_type, class: "span5" %>
+        <%= f.select(:event_type, 
+                        Event::EVENT_TYPES,
+                        prompt: "Selecciona un tipo") %> 
     </div> 
 
     <div class="control-group">

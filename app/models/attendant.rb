@@ -1,5 +1,7 @@
 # encoding: utf-8
 class Attendant < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search_name, :against => [:name, :lastname]
   attr_accessible :address, :city, :convention_id, :country, :email, :facebook, :institution, :interests, :lastname, :name, :phone, :profession, :twitter, :status
 
   belongs_to :convention

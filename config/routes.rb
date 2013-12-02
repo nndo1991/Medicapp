@@ -11,6 +11,7 @@ Medicapp::Application.routes.draw do
     resources :users
     resources :gallery_images
     resources :attendants
+    resources :search
     match '/' => 'conventions#index', as: :home
     get 'login' => 'user_sessions#new', :as => :login
     post 'logout' => 'user_sessions#destroy', :as => :logout

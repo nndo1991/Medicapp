@@ -1,0 +1,47 @@
+<div class="post-wrapper">
+	<%= link_to "Regresar", admin_attendants_path %>
+	<br />
+
+    <h3>Resultados de busqueda:</h3>
+    <div class="search">
+    	<p style="font-size:15px;"><i>"<%= params[:query] %>"</i></p>
+    </div>
+    
+    <table class="table table-bordered table-striped" id="convs_table">
+	<tr>
+		<th>Nombre</th>
+		<th>Apellidos</th>
+		<th>Email</th>
+		<th>Status</th>
+		<th>Info</th>
+	</tr>
+
+	<% @attendants.each do |attendant| %>
+	<tr>
+		<td>
+			<%= attendant.name %>
+		</td>
+		<td>
+			<%= attendant.lastname%>		
+		</td>
+		<td>
+			<%= attendant.email %>		
+		</td>
+		<td>
+			<%= attendant.status %>		
+		</td>
+		<td>
+			<%= link_to "Ver info", admin_attendant_path(attendant) %>
+			<br>
+            <%= link_to "Eliminar", [:admin, attendant], method: :delete, confirm: "Estas seguro de borrar del registro a este asistente?" %>
+            <br> 	
+		</td>	
+	</tr>	
+<% end %>
+</table>
+
+<div class="pagener">
+	<%= will_paginate @attendants %>
+</div>
+    
+</div>

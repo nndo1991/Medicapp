@@ -24,6 +24,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap-timepicker-rails'
 gem 'bootstrap-sass'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem "sorcery"
 gem "simple_calendar", "~> 0.1.9"
 gem 'rmagick'
@@ -31,6 +33,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'unf' 
 gem "mini_magick"
+gem 'pg_search'
 gem 'fullcalendar-rails'
 
 # To use ActiveModel has_secure_password

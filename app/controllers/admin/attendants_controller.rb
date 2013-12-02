@@ -2,7 +2,7 @@
 class Admin::AttendantsController < Admin::BaseController
 
 	def index
-		@attendants = Attendant.order("id asc")
+		@attendants = Attendant.order("id asc").paginate(:page => params[:page], :per_page => 15)
 	end
 
 	def show

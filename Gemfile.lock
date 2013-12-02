@@ -34,6 +34,8 @@ GEM
       sass (~> 3.2)
     bootstrap-timepicker-rails (0.1.3)
       railties (>= 3.0)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.0.4)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
@@ -97,6 +99,10 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.2)
     pg (0.17.0)
+    pg_search (0.7.2)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -154,6 +160,7 @@ GEM
     unf (0.1.3)
       unf_ext
     unf_ext (0.0.6)
+    will_paginate (3.0.5)
 
 PLATFORMS
   ruby
@@ -161,6 +168,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   bootstrap-timepicker-rails
+  bootstrap-will_paginate
   carrierwave
   coffee-rails (~> 3.2.1)
   fog
@@ -169,6 +177,7 @@ DEPENDENCIES
   jquery-ui-rails
   mini_magick
   pg
+  pg_search
   rails (= 3.2.13)
   rmagick
   sass-rails (~> 3.2.3)
@@ -176,3 +185,4 @@ DEPENDENCIES
   sorcery
   uglifier (>= 1.0.3)
   unf
+  will_paginate

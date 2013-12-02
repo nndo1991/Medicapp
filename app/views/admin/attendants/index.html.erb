@@ -7,6 +7,20 @@
 
 <h2>Asistentes</h2>
 
+<p>Registrados: &nbsp;&nbsp;<%= Attendant.where(:status => "registrado").count %> </p>
+<p>Confirmados: &nbsp;<%= Attendant.where(:status => "asistió").count %> </p>
+
+<!-- Barra Busqueda -->
+          <aside class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="block">
+              <div class="content">
+                <%= form_tag admin_search_index_path, method: :get do %>
+                    <%= text_field_tag :query, "", class: "form-control", placeholder: "Búsqueda" %>
+                <% end %>
+              </div>
+            </div>
+
+
 <table class="table table-bordered table-striped" id="convs_table">
 	<tr>
 		<th>Nombre</th>
@@ -38,5 +52,8 @@
 		</td>	
 	</tr>	
 <% end %>
-
 </table>
+
+<div class="pagener">
+	<%= will_paginate @attendants %>
+</div>
